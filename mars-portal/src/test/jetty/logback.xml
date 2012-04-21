@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+            <pattern>%date{ISO8601} %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+		<target>System.out</target>
+	</appender>
+
+	<logger name="com.btmatthews.mars">
+		<level value="DEBUG" />
+	</logger>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+</configuration>

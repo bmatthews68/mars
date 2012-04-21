@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+
+	<New class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>
+			<Ref id="Server" />
+		</Arg>
+		<Arg>jcr/mars</Arg>
+		<Arg>
+			<New class="javax.naming.Reference">
+				<Arg>javax.jcr.Repository</Arg>
+				<Arg>org.modeshape.jcr.JndiRepositoryFactory</Arg>
+				<Arg></Arg>
+				<Call name="add">
+					<Arg>
+						<New class="javax.naming.StringRefAddr">
+							<Arg>repositoryName</Arg>
+							<Arg>mars</Arg>
+						</New>
+					</Arg>
+				</Call>
+				<Call name="add">
+					<Arg>
+						<New class="javax.naming.StringRefAddr">
+							<Arg>configFile</Arg>
+							<Arg>src/test/jetty/modeshape.xml</Arg>
+						</New>
+					</Arg>
+				</Call>
+			</New>
+		</Arg>
+	</New>
+
+</Configure>	

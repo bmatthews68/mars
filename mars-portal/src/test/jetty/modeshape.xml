@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:mode="http://www.modeshape.org/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0">
+
+	<mode:repositories>
+		<mode:repository jcr:name="mars repository"
+			mode:source="mars">
+			<mode:options jcr:primaryType="mode:options">
+				<systemSourceName jcr:primaryType="mode:option"
+					mode:value="system@mars" />
+				<jaasLoginConfigName jcr:primaryType="mode:option"
+					mode:value="modeshape-jcr" />
+			</mode:options>
+		</mode:repository>
+	</mode:repositories>
+
+	<mode:sources jcr:primaryType="nt:unstructured">
+		<mode:source jcr:name="mars"
+			mode:classname="org.modeshape.graph.connector.inmemory.InMemoryRepositorySource"
+			mode:retryLimit="3" mode:defaultWorkspaceName="workspace1">
+			<predefinedWorkspaceNames>system</predefinedWorkspaceNames>
+		</mode:source>
+	</mode:sources>
+
+</configuration>
